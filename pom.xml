@@ -4,7 +4,7 @@
   <groupId>edu.uw</groupId>
   <artifactId>cp520</artifactId>
   <packaging>jar</packaging>
-  <version>01</version>
+  <version>02</version>
   <name>cp520</name>
   <url>http://maven.apache.org</url>
   <properties>
