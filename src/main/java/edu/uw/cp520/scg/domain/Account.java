@@ -11,8 +11,8 @@ public interface Account {
      *
      * @return
      * the name of this account.
-     */
     String getName();
+     */
 
 
     /**

@@ -1,6 +1,8 @@
 package edu.uw.cp520.scg.domain;
 
+import edu.uw.cp520.scg.util.Address;
 import edu.uw.cp520.scg.util.PersonalName;
+import edu.uw.cp520.scg.util.StateCode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,11 +21,14 @@ public class ConsultantTimeTest {
 
     private ConsultantTime consultantTime1;
 
+    private Address address;
+
     @BeforeEach
     void setUp() throws Exception {
        date = LocalDate.now();
         personalName1 = new PersonalName("Huang","Lin");
-        account = new ClientAccount("Huang Lin",personalName1);
+        address = new Address("31003","Federal Way", StateCode.WA,"98003");
+        account = new ClientAccount("Huang Lin",personalName1,address);
         skill = Skill.SOFTWARE_ENGINEER;
         hours = 5;
         consultantTime1 = new ConsultantTime(date,account,skill,hours);

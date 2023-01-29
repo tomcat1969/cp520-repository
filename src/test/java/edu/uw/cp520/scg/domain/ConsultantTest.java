@@ -32,6 +32,7 @@ public class ConsultantTest {
     void testToString() {
         String expected = "Huang, Lin, NMN";
         Consultant actual = consultant1;
+       // System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"+actual.toString());
         assertEquals(expected,actual.toString());
     }
 

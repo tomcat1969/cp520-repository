@@ -1,5 +1,6 @@
 package edu.uw.cp520.scg.domain;
 
+import edu.uw.cp520.scg.util.Address;
 import edu.uw.cp520.scg.util.PersonalName;
 
 /**
@@ -11,12 +12,31 @@ public final class ClientAccount implements Account {
     private final  String name;
     private PersonalName contact;
 
+    private Address address;
 
-    public ClientAccount(String name, PersonalName contact) {
+
+    public ClientAccount(String name, PersonalName contact, final Address address) {
 
         this.name = name;
         this.contact = contact;
+        this.address = address;
 
+    }
+
+    /**
+     * gets the address for this account
+     * @return
+     */
+    public Address getAddress() {
+        return address;
+    }
+
+    /**
+     * setter for address
+     * @param address
+     */
+    public void setAddress(final Address address) {
+        this.address = address;
     }
 
     /**
@@ -59,5 +79,10 @@ public final class ClientAccount implements Account {
      */
     public void setContact(final PersonalName contact) {
         this.contact = contact;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s%n%s%n%s%n",name,address.toString(),contact.toString());
     }
 }
