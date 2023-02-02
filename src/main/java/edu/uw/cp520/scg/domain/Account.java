@@ -11,9 +11,9 @@ public interface Account {
      *
      * @return
      * the name of this account.
-    String getName();
-     */
 
+     */
+    String getName();
 
     /**
      * Determines if this account is billable.

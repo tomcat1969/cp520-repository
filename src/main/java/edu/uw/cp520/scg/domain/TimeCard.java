@@ -11,7 +11,16 @@ import java.util.*;
  * and time billed to a particular client.
  * @author Lin Huang
  */
-public final class TimeCard {
+public final class TimeCard implements Comparable<TimeCard>{
+
+    /**
+     * TimeCard's natural ordering should be in ascending order by beginning date, consultant,
+     * total billable hours and finally total non-billable hours.
+     */
+    private static Comparator<TimeCard> naturalOrderComparator = Comparator.comparing(TimeCard::getWeekStartingDay)
+            .thenComparing(TimeCard::getConsultant)
+            .thenComparing(TimeCard::getTotalHours)
+            .thenComparing(TimeCard::getTotalNonBillableHours);
 
     private static final String HEADER_FORMAT ="Consultant: %-28s Week Starting: %2$tb %2$td, %2$tY%n";
     private static final String TO_STRING_FORMAT = "TimeCard for: %s, WeekStarting: %2$tb %2$td, %2$tY%n";
@@ -180,5 +189,11 @@ public final class TimeCard {
         final String s = formatter.toString();
         formatter.close();
         return s;
+    }
+
+    @Override
+    public int compareTo(TimeCard o) {
+        if( this == o) return 0;
+        return naturalOrderComparator.compare(this,o);
     }
 }

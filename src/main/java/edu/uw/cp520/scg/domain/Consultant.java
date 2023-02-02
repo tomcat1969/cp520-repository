@@ -8,7 +8,7 @@ import edu.uw.cp520.scg.util.PersonalName;
  * @author
  * Lin Huang
  */
-public class Consultant {
+public class Consultant implements Comparable<Consultant> {
 
     private final PersonalName name;
 
@@ -35,5 +35,11 @@ public class Consultant {
     @Override
     public final String toString() {
         return name.toString();
+    }
+
+    @Override
+    public int compareTo(Consultant o) {
+        if (this == o) return 0;
+        return name.compareTo(o.name);
     }
 }

@@ -9,7 +9,7 @@ Redmond, WA 98055
 Coyote, Wiley, NMN
 
 Invoice For Month of: March 2017
-Invoice Date: January 27
+Invoice Date: February 01
 Date    Consultant                  Skill                    Hours   Charge
 ------  --------------------------  ---------------------  ------   -------
 03/06/2017  Coder, Carl, NMN             Software Enginner        8    1,200.00
@@ -32,7 +32,7 @@ Silicone Gulch, CA 94105
 Sam, Yosemite, NMN
 
 Invoice For Month of: March 2017
-Invoice Date: January 27
+Invoice Date: February 01
 Date    Consultant                  Skill                    Hours   Charge
 ------  --------------------------  ---------------------  ------   -------
 03/01/2017  Coder, Carl, NMN             Software Enginner        8    1,200.00
@@ -57,7 +57,7 @@ Silicone Gulch, CA 94105
 Sam, Yosemite, NMN
 
 Invoice For Month of: March 2017
-Invoice Date: January 27
+Invoice Date: February 01
 Date    Consultant                  Skill                    Hours   Charge
 ------  --------------------------  ---------------------  ------   -------
 03/06/2017  Architect, Ann, S.           System Architect         8    1,600.00
@@ -82,7 +82,7 @@ Silicone Gulch, CA 94105
 Sam, Yosemite, NMN
 
 Invoice For Month of: March 2017
-Invoice Date: January 27
+Invoice Date: February 01
 Date    Consultant                  Skill                    Hours   Charge
 ------  --------------------------  ---------------------  ------   -------
 03/13/2017  Architect, Ann, S.           System Architect         8    1,600.00

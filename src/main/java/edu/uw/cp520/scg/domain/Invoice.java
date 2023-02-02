@@ -108,21 +108,28 @@ public class Invoice {
      * @param timeCard
      */
     public void extractLineItems(final TimeCard timeCard) {
+//        final List<ConsultantTime> billableHoursList = timeCard.getBillableHoursForClient(client.getName());
+//        for (final ConsultantTime consultantTime : billableHoursList) {
+//            final LocalDate timeCardDate = consultantTime.getDate();
+//            if(timeCardDate.getYear() == startDate.getYear()
+//                        &&
+//               timeCardDate.getMonth() == startDate.getMonth()) {
+//                final InvoiceLineItem currentItem = new InvoiceLineItem(
+//                        timeCardDate,
+//                        timeCard.getConsultant(),
+//                        consultantTime.getSkillType(),
+//                        consultantTime.getHours()
+//                );
+//                addLineItem(currentItem);
+//            }
+//        }
         final List<ConsultantTime> billableHoursList = timeCard.getBillableHoursForClient(client.getName());
-        for (final ConsultantTime consultantTime : billableHoursList) {
-            final LocalDate timeCardDate = consultantTime.getDate();
-            if(timeCardDate.getYear() == startDate.getYear()
-                        &&
-               timeCardDate.getMonth() == startDate.getMonth()) {
-                final InvoiceLineItem currentItem = new InvoiceLineItem(
-                        timeCardDate,
-                        timeCard.getConsultant(),
-                        consultantTime.getSkillType(),
-                        consultantTime.getHours()
-                );
-                addLineItem(currentItem);
-            }
-        }
+        billableHoursList.stream().filter(t->t.getDate().getYear() == startDate.getYear() &&
+                t.getDate().getMonth() == startDate.getMonth())
+                .forEach(t-> addLineItem(new InvoiceLineItem(t.getDate(),
+                                                              timeCard.getConsultant(),
+                                                                t.getSkillType(),
+                                                                t.getHours())));
     }
 
 

@@ -1,7 +1,10 @@
 package edu.uw.cp520.scg.util;
 
-import java.util.HashMap;
+
 import java.util.Locale;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /**
@@ -81,14 +84,16 @@ public enum StateCode {
     WY("Wyoming"),
     YT("Yukon Territory");
 
-    private static HashMap<String,StateCode> stateNameMap;
+    private static Map<String,StateCode> stateNameMap;
 
     static {
-        stateNameMap = new HashMap<>();
+//        stateNameMap = new HashMap<>();
+//        for(final StateCode code : values()) {
+//            stateNameMap.put(code.stateName.toUpperCase(Locale.US),code);
+//        }
 
-        for(final StateCode code : values()) {
-            stateNameMap.put(code.stateName.toUpperCase(Locale.US),code);
-        }
+        stateNameMap = Stream.of(StateCode.values())
+                .collect(Collectors.toMap(c -> c.stateName.toUpperCase(Locale.US),c -> c));
     }
 
     private String stateName;

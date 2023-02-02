@@ -1,16 +1,26 @@
 package edu.uw.cp520.scg.util;
 
 
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
  * Encapsulates the first, middle and last name of a person.
  */
-public class PersonalName {
+public class PersonalName implements Comparable<PersonalName>{
+
+    private static Comparator<PersonalName> naturalOrderComparator = Comparator.comparing(PersonalName::getLastName)
+            .thenComparing(PersonalName::getFirstName)
+            .thenComparing(PersonalName::getMiddleNam);
+
+
     /**
      * String constant for "NMN" - no middle name
      */
     public static final String NMN = "NMN";
+
+    private static final String NLN = "NLN";
+    private static final String NFN = "NFN";
 
     private String lastName;
     private String firstName;
@@ -116,5 +126,10 @@ public class PersonalName {
     @Override
     public String toString() {
         return getLastName() + ", " + getFirstName() + ", " + getMiddleNam();
+    }
+
+    @Override
+    public int compareTo(PersonalName o) {
+        return (this == o) ? 0 : naturalOrderComparator.compare(this,o);
     }
 }

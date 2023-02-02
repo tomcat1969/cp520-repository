@@ -3,12 +3,21 @@ package edu.uw.cp520.scg.domain;
 import edu.uw.cp520.scg.util.Address;
 import edu.uw.cp520.scg.util.PersonalName;
 
+import java.util.Comparator;
+
 /**
  * A billable Account that additionally has client contact information.
  * @Author
  * Lin Huang
  */
-public final class ClientAccount implements Account {
+public final class ClientAccount implements Account,Comparable<ClientAccount> {
+    /**
+     *  The Consultant natural ordering is in ascending ordered by the consultant's name.
+     *  The natural ordering of ClientAccount is ascending order by name, contact and finally address.
+     */
+    private static Comparator<ClientAccount> naturalOrderComparator = Comparator.comparing(ClientAccount::getName)
+            .thenComparing(ClientAccount::getContact)
+            .thenComparing(ClientAccount::getAddress);
     private final  String name;
     private PersonalName contact;
 
@@ -56,6 +65,7 @@ public final class ClientAccount implements Account {
      * @return
      * value of name property.
      */
+
     @Override
     public String getName() {
         return name;
@@ -84,5 +94,11 @@ public final class ClientAccount implements Account {
     @Override
     public String toString() {
         return String.format("%s%n%s%n%s%n",name,address.toString(),contact.toString());
+    }
+
+    @Override
+    public int compareTo(ClientAccount o) {
+        if(this == o) return 0;
+        return naturalOrderComparator.compare(this,o);
     }
 }
